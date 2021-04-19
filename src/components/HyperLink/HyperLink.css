@@ -1,0 +1,27 @@
+a {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  color: white;
+  box-sizing: border-box;
+}
+.fit-width {
+  width: fit-content;
+}
+.parent-width {
+  width: 100%;
+}
+.center {
+  justify-content: center;
+}
+.left {
+  justify-content: flex-start;
+}
+.right {
+  justify-content: flex-end;
+}
+a:hover {
+  background-color: #084fa5;
+  cursor: pointer;
+}

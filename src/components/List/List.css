@@ -1,0 +1,25 @@
+li {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  list-style: none;
+  color: white;
+  box-sizing: border-box;
+}
+.center {
+  justify-content: center;
+}
+.left {
+  justify-content: flex-start;
+}
+.right {
+  justify-content: flex-end;
+}
+.fit-width {
+  width: fit-content;
+  height: fit-content;
+}
+.parent-width {
+  width: 100%;
+  height: 100%;
+}
