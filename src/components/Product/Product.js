@@ -19,6 +19,107 @@ const Product = (props) => {
     imgOfProduct.style.transition = "";
     imgOfProduct.style.transform = "";
   };
+
+  const GetProduct = (props) => {
+    const { rowGap, imgHeight } = props;
+    return (
+      <UnorderedList
+        unorderedListObj={{
+          id: id,
+          gridColumns: "1",
+          width: "parent-width",
+          align: "center",
+          colGap: "10px",
+          rowGap: rowGap,
+        }}
+      >
+        <List
+          listObj={{
+            id: id + "-list-1",
+            align: "center",
+            width: "parent-width",
+          }}
+        >
+          <Image
+            imageObj={{
+              id: id + "-img",
+              width: "auto",
+              height: imgHeight,
+              src: url,
+            }}
+          />
+        </List>
+        <List
+          listObj={{
+            id: id + "-list-2",
+            align: "center",
+            width: "parent-width",
+          }}
+        >
+          <Paragraph
+            paragraphObj={{
+              id: id + "-paragraph-1",
+              size: "big",
+              weight: "bolder",
+              content: name,
+              color: "black",
+            }}
+          />
+        </List>
+        <List
+          listObj={{
+            id: id + "-list-3",
+            align: "center",
+            width: "parent-width",
+          }}
+        >
+          <Paragraph
+            paragraphObj={{
+              id: id + "-paragraph-2",
+              size: "medium",
+              weight: "normal",
+              content: ram + " " + rom,
+              color: "black",
+            }}
+          />
+        </List>
+        <List
+          listObj={{
+            id: id + "-list-4",
+            align: "center",
+            width: "parent-width",
+          }}
+        >
+          <Paragraph
+            paragraphObj={{
+              id: id + "-paragraph-3",
+              size: "medium",
+              weight: "normal",
+              content: processor,
+              color: "black",
+            }}
+          />
+        </List>
+        <List
+          listObj={{
+            id: id + "-list-5",
+            align: "center",
+            width: "parent-width",
+          }}
+        >
+          <Paragraph
+            paragraphObj={{
+              id: id + "-paragraph-4",
+              size: "medium",
+              weight: "bold",
+              content: "Rs. " + price,
+              color: "black",
+            }}
+          />
+        </List>
+      </UnorderedList>
+    );
+  };
   return (
     <div
       className='product-component'
@@ -26,293 +127,11 @@ const Product = (props) => {
       onMouseOut={handleOnMouseOut}
     >
       {windowSize > 1000 ? (
-        <UnorderedList
-          unorderedListObj={{
-            id: id,
-            gridColumns: "1",
-            width: "parent-width",
-            align: "center",
-            colGap: "10px",
-            rowGap: "3px",
-          }}
-        >
-          <List
-            listObj={{
-              id: id + "-list-1",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Image
-              imageObj={{
-                id: id + "-img",
-                width: "auto",
-                height: "200px",
-                src: url,
-              }}
-            />
-          </List>
-          <List
-            listObj={{
-              id: id + "-list-2",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Paragraph
-              paragraphObj={{
-                id: id + "-paragraph-1",
-                size: "big",
-                weight: "bolder",
-                content: name,
-                color: "black",
-              }}
-            />
-          </List>
-          <List
-            listObj={{
-              id: id + "-list-3",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Paragraph
-              paragraphObj={{
-                id: id + "-paragraph-2",
-                size: "medium",
-                weight: "normal",
-                content: ram + " " + rom,
-                color: "black",
-              }}
-            />
-          </List>
-          <List
-            listObj={{
-              id: id + "-list-4",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Paragraph
-              paragraphObj={{
-                id: id + "-paragraph-3",
-                size: "medium",
-                weight: "normal",
-                content: processor,
-                color: "black",
-              }}
-            />
-          </List>
-          <List
-            listObj={{
-              id: id + "-list-5",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Paragraph
-              paragraphObj={{
-                id: id + "-paragraph-4",
-                size: "medium",
-                weight: "bold",
-                content: "Rs. " + price,
-                color: "black",
-              }}
-            />
-          </List>
-        </UnorderedList>
+        <GetProduct rowGap='3px' imgHeight='200px' />
       ) : windowSize > 800 ? (
-        <UnorderedList
-          unorderedListObj={{
-            id: id,
-            gridColumns: "1",
-            width: "parent-width",
-            align: "center",
-            colGap: "10px",
-            rowGap: "2px",
-          }}
-        >
-          <List
-            listObj={{
-              id: id + "-list-1",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Image
-              imageObj={{
-                id: id + "-img",
-                width: "auto",
-                height: "150px",
-                src: url,
-              }}
-            />
-          </List>
-          <List
-            listObj={{
-              id: id + "-list-2",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Paragraph
-              paragraphObj={{
-                id: id + "-paragraph-1",
-                size: "big",
-                weight: "bolder",
-                content: name,
-                color: "black",
-              }}
-            />
-          </List>
-          <List
-            listObj={{
-              id: id + "-list-3",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Paragraph
-              paragraphObj={{
-                id: id + "-paragraph-2",
-                size: "medium",
-                weight: "normal",
-                content: ram + " " + rom,
-                color: "black",
-              }}
-            />
-          </List>
-          <List
-            listObj={{
-              id: id + "-list-4",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Paragraph
-              paragraphObj={{
-                id: id + "-paragraph-3",
-                size: "medium",
-                weight: "normal",
-                content: processor,
-                color: "black",
-              }}
-            />
-          </List>
-          <List
-            listObj={{
-              id: id + "-list-5",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Paragraph
-              paragraphObj={{
-                id: id + "-paragraph-4",
-                size: "medium",
-                weight: "bold",
-                content: "Rs. " + price,
-                color: "black",
-              }}
-            />
-          </List>
-        </UnorderedList>
+        <GetProduct rowGap='2px' imgHeight='150px' />
       ) : (
-        <UnorderedList
-          unorderedListObj={{
-            id: id,
-            gridColumns: "1",
-            width: "parent-width",
-            align: "center",
-            colGap: "10px",
-            rowGap: "1px",
-          }}
-        >
-          <List
-            listObj={{
-              id: id + "-list-1",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Image
-              imageObj={{
-                id: id + "-img",
-                width: "auto",
-                height: "150px",
-                src: url,
-              }}
-            />
-          </List>
-          <List
-            listObj={{
-              id: id + "-list-2",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Paragraph
-              paragraphObj={{
-                id: id + "-paragraph-1",
-                size: "big",
-                weight: "bolder",
-                content: name,
-                color: "black",
-              }}
-            />
-          </List>
-          <List
-            listObj={{
-              id: id + "-list-3",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Paragraph
-              paragraphObj={{
-                id: id + "-paragraph-2",
-                size: "medium",
-                weight: "normal",
-                content: ram + " " + rom,
-                color: "black",
-              }}
-            />
-          </List>
-          <List
-            listObj={{
-              id: id + "-list-4",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Paragraph
-              paragraphObj={{
-                id: id + "-paragraph-3",
-                size: "medium",
-                weight: "normal",
-                content: processor,
-                color: "black",
-              }}
-            />
-          </List>
-          <List
-            listObj={{
-              id: id + "-list-5",
-              align: "center",
-              width: "parent-width",
-            }}
-          >
-            <Paragraph
-              paragraphObj={{
-                id: id + "-paragraph-4",
-                size: "medium",
-                weight: "bold",
-                content: "Rs. " + price,
-                color: "black",
-              }}
-            />
-          </List>
-        </UnorderedList>
+        <GetProduct rowGap='1px' imgHeight='150px' />
       )}
     </div>
   );
