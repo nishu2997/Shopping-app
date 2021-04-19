@@ -30,6 +30,31 @@ const Header = () => {
   useEffect(() => {
     handleTransform();
   });
+
+  const BrandName = () => {
+    return (
+      <div className='brand-name'>
+        <Flex
+          flexObj={{
+            id: "flex-1",
+            align: "left",
+            width: "100%",
+            height: "auto",
+            bgColor: "inherit",
+          }}
+        >
+          <Paragraph
+            paragraphObj={{
+              id: "p-1",
+              size: "extra-extra-big",
+              weight: "bolder",
+              content: "Shopping App",
+            }}
+          />
+        </Flex>
+      </div>
+    );
+  };
   return (
     <header>
       <nav className='nav-bar'>
@@ -37,26 +62,7 @@ const Header = () => {
           false ? (
             <>
               <div className='nav-bar-top'>
-                <div className='brand-name'>
-                  <Flex
-                    flexObj={{
-                      id: "flex-1",
-                      align: "left",
-                      width: "100%",
-                      height: "auto",
-                      bgColor: "inherit",
-                    }}
-                  >
-                    <Paragraph
-                      paragraphObj={{
-                        id: "p-1",
-                        size: "extra-extra-big",
-                        weight: "bolder",
-                        content: "Shopping App",
-                      }}
-                    />
-                  </Flex>
-                </div>
+                <BrandName />
                 <div className='nav-dash-button'>
                   <ul className='nav-bar-ul' onClick={handleNavbar}>
                     <li className='nav-bar-li'></li>
@@ -119,26 +125,7 @@ const Header = () => {
           ) : (
             <>
               <div className='nav-bar-top'>
-                <div className='brand-name'>
-                  <Flex
-                    flexObj={{
-                      id: "flex-1",
-                      align: "left",
-                      width: "100%",
-                      height: "auto",
-                      bgColor: "inherit",
-                    }}
-                  >
-                    <Paragraph
-                      paragraphObj={{
-                        id: "p-1",
-                        size: "extra-extra-big",
-                        weight: "bolder",
-                        content: "Shopping App",
-                      }}
-                    />
-                  </Flex>
-                </div>
+                <BrandName />
                 <div className='nav-dash-button'>
                   <ul className='nav-bar-ul' onClick={handleNavbar}>
                     <li className='nav-bar-li'></li>
@@ -237,26 +224,7 @@ const Header = () => {
           )
         ) : false ? (
           <>
-            <div className='brand-name'>
-              <Flex
-                flexObj={{
-                  id: "flex-1",
-                  align: "left",
-                  width: "100%",
-                  height: "auto",
-                  bgColor: "inherit",
-                }}
-              >
-                <Paragraph
-                  paragraphObj={{
-                    id: "p-1",
-                    size: "extra-extra-big",
-                    weight: "bolder",
-                    content: "Shopping App",
-                  }}
-                />
-              </Flex>
-            </div>
+            <BrandName />
             <div className='search-bar'>
               <SearchBar />
             </div>
@@ -289,26 +257,7 @@ const Header = () => {
           </>
         ) : (
           <>
-            <div className='brand-name'>
-              <Flex
-                flexObj={{
-                  id: "flex-1",
-                  align: "left",
-                  width: "100%",
-                  height: "auto",
-                  bgColor: "inherit",
-                }}
-              >
-                <Paragraph
-                  paragraphObj={{
-                    id: "p-1",
-                    size: "extra-extra-big",
-                    weight: "bolder",
-                    content: "Shopping App",
-                  }}
-                />
-              </Flex>
-            </div>
+            <BrandName />
             <div className='search-bar'>
               <SearchBar />
             </div>
