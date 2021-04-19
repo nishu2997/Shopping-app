@@ -11,6 +11,8 @@ const Input = (props) => {
     handleChange,
     handleFocus,
     handleBlur,
+    caretColor,
+    color,
   } = props.inputObj;
   useEffect(() => {
     const inputField = document.getElementById(id);
@@ -19,6 +21,9 @@ const Input = (props) => {
         inputField.style.borderStyle = "solid";
         inputField.style.borderWidth = "0px 0px " + borderBottom + " 0px";
       }
+      if (typeof caretColor != "undefined")
+        inputField.style.caretColor = caretColor;
+      if (typeof color != "undefined") inputField.style.color = color;
     }
   });
   return (
@@ -45,6 +50,7 @@ const Input = (props) => {
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          autoComplete='off'
         />
       )}
     </>
