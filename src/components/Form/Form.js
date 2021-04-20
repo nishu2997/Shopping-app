@@ -1,10 +1,12 @@
 import React from "react";
 import "./Form.css";
 const Form = (props) => {
-  const { id } = props.formObj;
+  const { id, handleSubmit } = props.formObj;
   return (
     <>
-      <form className='form-component'>{props.children}</form>
+      <form className='form-component' onSubmit={handleSubmit}>
+        {props.children}
+      </form>
     </>
   );
 };

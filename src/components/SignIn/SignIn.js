@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "../Form/Form";
 import List from "../List/List";
 import UnorderedList from "../UnorderedList/UnorderedList";
@@ -11,6 +11,7 @@ import { useHistory, useLocation } from "react-router";
 const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLogInFailed, setIsLogInFailed] = useState(false);
   const history = useHistory();
   const location = useLocation();
 
@@ -25,17 +26,35 @@ const SignIn = () => {
       default:
     }
   };
+  const handleSubmit = (e) => {
+    console.log("hii");
+    e.preventDefault();
+    setIsLogInFailed(true);
+  };
   const handleBack = () => {
     history.push(
       location.pathname.slice(0, location.pathname.indexOf("/signin"))
     );
   };
+  useEffect(() => {
+    if (isLogInFailed) setIsLogInFailed(false);
+  }, [username]);
+  useEffect(() => {
+    if (isLogInFailed) setIsLogInFailed(false);
+  }, [password]);
+  useEffect(() => {
+    const errorMsg = document.querySelector(".signin-failed-msg");
+    if (isLogInFailed) {
+      errorMsg.style.opacity = 1;
+    } else errorMsg.style.opacity = 0;
+  }, [isLogInFailed]);
   return (
     <div className='signin-component'>
       <div className='signin-form-box'>
         <Form
           formObj={{
             id: "sigin-form",
+            handleSubmit: handleSubmit,
           }}
         >
           <div className='signin-form-user-logo'>
@@ -57,6 +76,18 @@ const SignIn = () => {
                 weight: "bold",
                 content: "Please SignIn!",
                 color: "black",
+                font: "monospace",
+              }}
+            />
+          </div>
+          <div className='signin-failed-msg'>
+            <Paragraph
+              paragraphObj={{
+                id: "signin-failed-error",
+                size: "extra-big",
+                weight: "normal",
+                content: "username or password does not exist!",
+                color: "red",
                 font: "monospace",
               }}
             />
@@ -104,14 +135,10 @@ const SignIn = () => {
             />
           </div>
           <div className='signin-form-signin-button'>
-            <button type='submit' value='submit'>
-              SignIn
-            </button>
+            <button type='submit'>SignIn</button>
           </div>
           <div className='signin-form-social-signin-button'>
-            <button type='submit' value='submit'>
-              SignIn with Facebook
-            </button>
+            <button type='button'>SignIn with Facebook</button>
           </div>
         </Form>
       </div>
