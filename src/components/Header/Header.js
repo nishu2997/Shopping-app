@@ -278,7 +278,7 @@ const Header = () => {
                   <HyperLink
                     linkObj={{
                       id: "a-1",
-                      to: "/app",
+                      to: "/signup",
                       link: "Signup",
                       width: "fit-width",
                       align: "center",

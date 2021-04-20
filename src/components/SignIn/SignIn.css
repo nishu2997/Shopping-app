@@ -1,6 +1,5 @@
 .signin-component {
-  width: 500px;
-  height: 380px;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 30px;
 }
@@ -17,10 +16,12 @@
 .signin-form-back-button button:hover {
   cursor: pointer;
 }
-.signin-form-box {
+.signin-box {
   background-color: white;
+}
+.signin-form-box {
   box-sizing: border-box;
-  padding: 0px 20px 0px 20px;
+  padding: 10px 20px 1px 20px;
 }
 .signin-form-user-logo {
   width: 100%;
@@ -29,7 +30,7 @@
   justify-content: center;
   box-sizing: border-box;
   margin-bottom: 10px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .signin-form-greet {
   width: 100%;
@@ -45,7 +46,6 @@
   margin-bottom: 10px;
   box-sizing: border-box;
   padding: 2px;
-  opacity: 0;
 }
 .signin-form-username {
   width: 100%;
@@ -94,6 +94,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 }
 .signin-form-social-signin-button button {
   width: 100%;

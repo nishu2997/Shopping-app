@@ -42,105 +42,102 @@ const SignIn = () => {
   useEffect(() => {
     if (isLogInFailed) setIsLogInFailed(false);
   }, [password]);
-  useEffect(() => {
-    const errorMsg = document.querySelector(".signin-failed-msg");
-    if (isLogInFailed) {
-      errorMsg.style.opacity = 1;
-    } else errorMsg.style.opacity = 0;
-  }, [isLogInFailed]);
   return (
     <div className='signin-component'>
-      <div className='signin-form-box'>
-        <Form
-          formObj={{
-            id: "sigin-form",
-            handleSubmit: handleSubmit,
-          }}
-        >
-          <div className='signin-form-user-logo'>
-            <Image
-              imageObj={{
-                id: "signin-form-user-logo",
-                width: "50px",
-                height: "50px",
-                src:
-                  "https://img.icons8.com/ios-filled/2x/user-male-circle.png",
-              }}
-            />
-          </div>
-          <div className='signin-form-greet'>
-            <Paragraph
-              paragraphObj={{
-                id: "signin-form-greet-p",
-                size: "extra-extra-big",
-                weight: "bold",
-                content: "Please SignIn!",
-                color: "black",
-                font: "monospace",
-              }}
-            />
-          </div>
-          <div className='signin-failed-msg'>
-            <Paragraph
-              paragraphObj={{
-                id: "signin-failed-error",
-                size: "extra-big",
-                weight: "normal",
-                content: "username or password does not exist!",
-                color: "red",
-                font: "monospace",
-              }}
-            />
-          </div>
-          <div className='signin-form-username'>
-            <Input
-              inputObj={{
-                id: "signin-form-username",
-                type: "text",
-                name: "username",
-                value: username,
-                placeholder: "enter your username",
-                borderBottom: "0px",
-                handleChange: handleOnChange,
-                caretColor: "black",
-                color: "black",
-              }}
-            />
-          </div>
-          <div className='signin-form-password'>
-            <Input
-              inputObj={{
-                id: "signin-form-password",
-                type: "text",
-                name: "password",
-                value: password,
-                placeholder: "enter your password",
-                borderBottom: "0px",
-                handleChange: handleOnChange,
-                caretColor: "black",
-                color: "black",
-              }}
-            />
-            <HyperLink
-              linkObj={{
-                id: "signin-form-forgot",
-                to: "#",
-                link: "forgot?",
-                width: "fit-content",
-                align: "center",
-                color: "blue",
-                bgColor: "white",
-                padding: "0px",
-              }}
-            />
-          </div>
-          <div className='signin-form-signin-button'>
-            <button type='submit'>SignIn</button>
-          </div>
-          <div className='signin-form-social-signin-button'>
-            <button type='button'>SignIn with Facebook</button>
-          </div>
-        </Form>
+      <div className='signin-box'>
+        <div className='signin-form-user-logo'>
+          <Image
+            imageObj={{
+              id: "signin-form-user-logo",
+              width: "50px",
+              height: "50px",
+              src: "https://img.icons8.com/ios-filled/2x/user-male-circle.png",
+            }}
+          />
+        </div>
+        <div className='signin-form-greet'>
+          <Paragraph
+            paragraphObj={{
+              id: "signin-form-greet-p",
+              size: "extra-extra-big",
+              weight: "bold",
+              content: "Please SignIn!",
+              color: "black",
+              font: "monospace",
+            }}
+          />
+        </div>
+        <div className='signin-form-box'>
+          <Form
+            formObj={{
+              id: "sigin-form",
+              handleSubmit: handleSubmit,
+            }}
+          >
+            {isLogInFailed ? (
+              <div className='signin-failed-msg'>
+                <Paragraph
+                  paragraphObj={{
+                    id: "signin-failed-error",
+                    size: "extra-big",
+                    weight: "normal",
+                    content: "username or password does not exist!",
+                    color: "red",
+                    font: "monospace",
+                  }}
+                />
+              </div>
+            ) : null}
+            <div className='signin-form-username'>
+              <Input
+                inputObj={{
+                  id: "signin-form-username",
+                  type: "text",
+                  name: "username",
+                  value: username,
+                  placeholder: "enter your username",
+                  borderBottom: "0px",
+                  handleChange: handleOnChange,
+                  caretColor: "black",
+                  color: "black",
+                }}
+              />
+            </div>
+            <div className='signin-form-password'>
+              <Input
+                inputObj={{
+                  id: "signin-form-password",
+                  type: "password",
+                  name: "password",
+                  value: password,
+                  placeholder: "enter your password",
+                  borderBottom: "0px",
+                  handleChange: handleOnChange,
+                  caretColor: "black",
+                  color: "black",
+                }}
+              />
+              <HyperLink
+                linkObj={{
+                  id: "signin-form-forgot",
+                  to: "#",
+                  link: "forgot?",
+                  width: "fit-content",
+                  align: "center",
+                  color: "blue",
+                  bgColor: "white",
+                  padding: "0px",
+                }}
+              />
+            </div>
+            <div className='signin-form-signin-button'>
+              <button type='submit'>SignIn</button>
+            </div>
+            <div className='signin-form-social-signin-button'>
+              <button type='button'>SignIn with Facebook</button>
+            </div>
+          </Form>
+        </div>
       </div>
       <div className='signin-form-back-button'>
         <button type='button' value='button' onClick={handleBack}>
