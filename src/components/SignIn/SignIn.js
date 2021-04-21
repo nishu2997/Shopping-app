@@ -36,12 +36,37 @@ const SignIn = () => {
       location.pathname.slice(0, location.pathname.indexOf("/signin"))
     );
   };
+  const enableButton = () => {
+    const button = document.querySelector(".signin-form-signin-button button");
+    if (button != null) {
+      button.disabled = false;
+      button.style.pointerEvents = "all";
+    }
+  };
+  const disableButton = () => {
+    const button = document.querySelector(".signin-form-signin-button button");
+    if (button != null) {
+      button.disabled = true;
+      button.style.pointerEvents = "none";
+    }
+  };
+  const disableScroll = () => {
+    const main = document.getElementById("body-main-tag");
+    main.style.overflow = "hidden";
+  };
   useEffect(() => {
     if (isLogInFailed) setIsLogInFailed(false);
   }, [username]);
   useEffect(() => {
     if (isLogInFailed) setIsLogInFailed(false);
   }, [password]);
+  useEffect(() => {
+    if (username.length == 0 || password.length == 0) disableButton();
+    else enableButton();
+  }, [username, password]);
+  useEffect(() => {
+    disableScroll();
+  }, []);
   return (
     <div className='signin-component'>
       <div className='signin-box'>

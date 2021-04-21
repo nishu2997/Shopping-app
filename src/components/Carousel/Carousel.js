@@ -5,6 +5,7 @@ import "./Carousel.css";
 import AppContext from "../../contexts/AppContext";
 const Carousel = () => {
   let timer = null;
+  let previousTime = new Date().getTime();
   const windowSize = useContext(AppContext).window.windowSize;
   const [itemList, setItemList] = useState(() => {
     const slides = [];
@@ -62,11 +63,11 @@ const Carousel = () => {
       prevSlide = slides.children[1];
     }
     setTimeout(() => {
-      const transition = "transform 500ms ease";
+      const transition = "transform 200ms ease-out";
       const transform = "translateX(-" + prevSlide.style.left + ")";
       handleTransform(transition, transform);
       prevSlide.classList.add("active");
-    }, 10);
+    }, 100);
   };
 
   const handleNext = () => {
@@ -80,11 +81,11 @@ const Carousel = () => {
       nextSlide = slides.children[1];
     }
     setTimeout(() => {
-      const transition = "transform 200ms ease";
+      const transition = "transform 200ms ease-out";
       const transform = "translateX(-" + nextSlide.style.left + ")";
       handleTransform(transition, transform);
       nextSlide.classList.add("active");
-    }, 10);
+    }, 100);
   };
 
   const setLeftPosition = () => {
@@ -116,10 +117,29 @@ const Carousel = () => {
   };
 
   const startAnimation = () => {
-    stopAnimation();
     timer = setInterval(() => {
       handleNext();
-    }, 5000);
+    }, 3000);
+  };
+  const handleNextAnnimation = () => {
+    const currentTime = new Date().getTime();
+    if (currentTime - previousTime > 0 && currentTime - previousTime < 500) {
+      setTimeout(() => handleNext(), previousTime + 500 - currentTime);
+      previousTime = previousTime + 500;
+    } else if (currentTime - previousTime > 500) {
+      previousTime = currentTime;
+      handleNext();
+    }
+  };
+  const handlePrevAnnimation = () => {
+    const currentTime = new Date().getTime();
+    if (currentTime - previousTime > 0 && currentTime - previousTime < 500) {
+      setTimeout(() => handlePrev(), previousTime + 500 - currentTime);
+      previousTime = previousTime + 500;
+    } else if (currentTime - previousTime > 500) {
+      previousTime = currentTime;
+      handlePrev();
+    }
   };
   useEffect(() => {
     initializeSlider();
@@ -134,7 +154,7 @@ const Carousel = () => {
     >
       <div className='slides'>{itemList}</div>
       <div className='slider-prev-button'>
-        <div className='prev-button' onClick={handlePrev}>
+        <div className='prev-button' onClick={handlePrevAnnimation}>
           <Image
             imageObj={{
               id: "slider-prev-button",
@@ -146,7 +166,7 @@ const Carousel = () => {
         </div>
       </div>
       <div className='slider-next-button'>
-        <div className='next-button' onClick={handleNext}>
+        <div className='next-button' onClick={handleNextAnnimation}>
           <Image
             imageObj={{
               id: "slider-next-button",

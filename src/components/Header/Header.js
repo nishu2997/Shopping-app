@@ -95,7 +95,7 @@ const Header = () => {
                     <HyperLink
                       linkObj={{
                         id: "a-1",
-                        to: "/app",
+                        to: "/signup",
                         link: "Signup",
                         width: "parent-width",
                         align: "left",
@@ -112,7 +112,7 @@ const Header = () => {
                     <HyperLink
                       linkObj={{
                         id: "a-2",
-                        to: "/body",
+                        to: "/signin",
                         link: "Signin",
                         width: "parent-width",
                         align: "left",
