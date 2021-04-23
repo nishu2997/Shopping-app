@@ -11,6 +11,7 @@ const UnorderedList = (props) => {
     colGap,
     rowGap,
     backgroundColor,
+    padding,
   } = props.unorderedListObj;
   useEffect(() => {
     const ul = document.getElementById(id);
@@ -19,6 +20,7 @@ const UnorderedList = (props) => {
       if (typeof rowGap != "undefined") ul.style.rowGap = rowGap;
       if (typeof backgroundColor != "undefined")
         ul.style.backgroundColor = backgroundColor;
+      if (typeof padding != "undefined") ul.style.padding = padding;
     }
   });
   return (

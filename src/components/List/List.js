@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./List.css";
 const List = (props) => {
   const listItem = props.children;
-  const { align, width } = props.listObj;
+  const { id, align, width, padding } = props.listObj;
+  useEffect(() => {
+    const liElement = document.getElementById(id);
+    if (liElement != null) {
+      if (typeof padding != "undefined") liElement.style.padding = padding;
+    }
+  });
   return (
     <>
-      <li className={align + " " + width}>{listItem}</li>
+      <li id={id} className={align + " " + width}>
+        {listItem}
+      </li>
     </>
   );
 };

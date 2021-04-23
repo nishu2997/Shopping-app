@@ -2,3 +2,7 @@
   width: 100%;
   height: 100%;
 }
+.product-suggestion-component li:hover {
+  cursor: pointer;
+  background-color: rgb(203, 204, 204);
+}

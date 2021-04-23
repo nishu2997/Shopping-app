@@ -50,10 +50,7 @@ const SignIn = () => {
       button.style.pointerEvents = "none";
     }
   };
-  const disableScroll = () => {
-    const main = document.getElementById("body-main-tag");
-    main.style.overflow = "hidden";
-  };
+
   useEffect(() => {
     if (isLogInFailed) setIsLogInFailed(false);
   }, [username]);
@@ -64,9 +61,7 @@ const SignIn = () => {
     if (username.length == 0 || password.length == 0) disableButton();
     else enableButton();
   }, [username, password]);
-  useEffect(() => {
-    disableScroll();
-  }, []);
+
   return (
     <div className='signin-component'>
       <div className='signin-box'>

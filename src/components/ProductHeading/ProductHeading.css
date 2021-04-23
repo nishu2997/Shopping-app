@@ -1,0 +1,16 @@
+.product-heading-component {
+  box-sizing: border-box;
+}
+.product-heading-name-color {
+  box-sizing: border-box;
+  margin-bottom: 2px;
+}
+.product-heading-ram-rom {
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+.product-heading-rating-review {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}

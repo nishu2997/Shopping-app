@@ -1,0 +1,7 @@
+.product-price-component {
+  display: flex;
+  column-gap: 10px;
+}
+.product-price-current-price {
+  margin-bottom: 5px;
+}

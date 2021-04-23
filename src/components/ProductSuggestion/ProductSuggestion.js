@@ -15,23 +15,27 @@ const ProductSuggestion = (props) => {
           align: "center",
           colGap: "0px",
           rowGap: "8px",
+          padding: "0px",
         }}
       >
         {productList.map((product) => (
           <List
             key={"key-product-suggestion-" + product.id}
             listObj={{
+              id: "key-product-suggestion-li-" + product.id,
               align: "left",
               width: "parent-width",
+              padding: "0px",
             }}
           >
             <Paragraph
               paragraphObj={{
-                id: "product-suggestion-list-" + product.id,
+                id: "product-suggestion-list-p-" + product.id,
                 size: "medium",
                 weight: "normal",
                 content: product.name.toLowerCase(),
                 color: "black",
+                padding: "2px 10px 2px 10px",
               }}
             />
           </List>
